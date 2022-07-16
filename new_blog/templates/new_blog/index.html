@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    My Blog
+{% endblock %}
+
+{% block css_files%}
+
+    <link rel="stylesheet" href="{% static "new_blog/post.css" %}">
+    <link rel="stylesheet" href="{% static "new_blog/index.css" %}">
+
+{% endblock %}
+
+{% block content %}
+    <section id="welcome">
+        <header>
+            <img src="{% static "new_blog/images/my_face.jpg" %}" alt="Yura - The Author Of This Blog">
+            <h2>YURA'S BLOG</h2>
+        </header>
+        <p>Hi, I'm am Yura and I love programming and playing Enderal</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>My Latest Posts</h2>
+
+        <ul>
+            {% for post in posts %}
+                {% include "new_blog/includes/post.html" %}
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>What I Do</h2>
+        <p>
+            I love programming and Enderal
+        </p>
+        <p>
+            My goal is to keep growing as a web-developer and gain a worm place in Google:)
+        </p>
+    </section>
+
+{% endblock %}
